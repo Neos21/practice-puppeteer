@@ -1,0 +1,15 @@
+{
+  "name": "practice-puppeteer",
+  "description": "Practice Puppeteer",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Neo <neos21@gmail.com> (http://neo.s21.xrea.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.20.0",
+    "dotenv": "8.2.0",
+    "puppeteer-core": "5.2.1"
+  }
+}
