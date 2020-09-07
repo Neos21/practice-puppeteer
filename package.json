@@ -1,7 +1,11 @@
 {
   "name": "practice-puppeteer",
+  "version": "0.0.0",
   "description": "Practice Puppeteer",
   "private": true,
+  "bin": {
+    "hb": "bin/hb.js"
+  },
   "scripts": {
     "start": "node index.js"
   },

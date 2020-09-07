@@ -35,14 +35,13 @@ let currentPageTitle = '';
     await page.setViewport({ width: 1280, height: 720 });
     
     // カテゴリ一覧を取得する
-    await execMove(page.goto(`https://blog.hatena.ne.jp/${process.env.HATENA_ID}/${process.env.HATENA_BLOG_URL}/categories`));
-    await loginIfNeed();
-    if(!currentPageTitle.includes('カテゴリー - はてなブログ')) throw new Error('うまくログインできていない');
-    const categoryTexts = await page.$$eval('.categories-table-category-name', elements => elements.map(element => element.textContent).map(text => text.replace((/\n/gu), '').replace((/\s+/gu), ' ').trim()));
-    const categories = categoryTexts.map((categoryText) => categoryText.match((/(.*)( \([0-9]*\))$/u))[1]).sort();
-    console.log(categories);
-    
-    return await page.waitFor(1000);
+    //await execMove(page.goto(`https://blog.hatena.ne.jp/${process.env.HATENA_ID}/${process.env.HATENA_BLOG_URL}/categories`));
+    //await loginIfNeed();
+    //if(!currentPageTitle.includes('カテゴリー - はてなブログ')) throw new Error('うまくログインできていない');
+    //const categoryTexts = await page.$$eval('.categories-table-category-name', elements => elements.map(element => element.textContent).map(text => text.replace((/\n/gu), '').replace((/\s+/gu), ' ').trim()));
+    //const categories = categoryTexts.map((categoryText) => categoryText.match((/(.*)( \([0-9]*\))$/u))[1]).sort();
+    //console.log(categories);
+    //return await page.waitFor(1000);
     
     // 下書きの予約投稿時間を確認する
     await execMove(page.goto(`https://blog.hatena.ne.jp/${process.env.HATENA_ID}/${process.env.HATENA_BLOG_URL}/drafts`));
@@ -51,6 +50,7 @@ let currentPageTitle = '';
     await getDraftPostTimes();
     // 「記事を書く」ボタンを押下して予約投稿する
     // await postReservedDraft();
+    return await page.waitFor(1000);
   }
   catch(error) {
     console.error('ERROR\n', error, '\nERROR');
@@ -99,6 +99,7 @@ async function getDraftPostTimes() {
   // 「-」                                      = 下書き・日付未指定
   // 日付のみ                                   = 下書き・日付指定アリ
   // 「予約投稿」(span.badge.badge-info) + 日付 = 予約投稿・日付指定アリ
+  // 1件もなければ空配列になる
   const postTimeTexts = await page.$$eval('.td-blog-description', elements => elements.map(element => element.textContent).map(text => text.replace((/\n/gu), '').replace((/\s+/gu), ' ').trim()));
   const postTimes = postTimeTexts.filter(postTimeText => postTimeText !== '-').map(postTimeText => ({
     isReserved: postTimeText.includes('予約投稿'),
