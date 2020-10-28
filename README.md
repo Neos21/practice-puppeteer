@@ -1,7 +1,18 @@
-C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe
-/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe
+# Practice Puppeteer
 
-C:\Users\Neo\AppData\Local\Google\Chrome\User Data
-C:\\Users\\Neo\\AppData\\Local\\Google\\Chrome\\User Data
-/mnt/c/Users/Neo/AppData/Local/Google/Chrome/User Data
+__[WIP]__ はてなブログへの予約投稿を Puppeteer で行うツールを作ろうとしかけていた。
+
+
+## Author
+
+[Neo](http://neo.s21.xrea.com/)
+
+
+## Links
+
+- [Neo's World](http://neo.s21.xrea.com/)
+- [Corredor](https://neos21.hatenablog.com/)
+- [Murga](https://neos21.hatenablog.jp/)
+- [El Mylar](https://neos21.hateblo.jp/)
+- [Neo's GitHub Pages](https://neos21.github.io/)
+- [GitHub - Neos21](https://github.com/Neos21/)
